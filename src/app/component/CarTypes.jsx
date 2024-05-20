@@ -11,12 +11,12 @@ const CarGallery = () => {
   return (
     <div className=''>
       <div className='text-center mt-10'>
-        <h1 className='text-5xl text-black'>New Innovations</h1>
-        <h2 className='text-black uppercase text-sm mt-2'>
+        <h1 className='text-3xl sm:text-5xl md:text-5xl lg:text-5xl text-black '>New Innovations</h1>
+        <h2 className='text-black uppercase text-[12px] px-6 sm:text-sm md:text-sm lg:text-sm mt-2'>
           Car is not just Machines, They are an extension of ourselves
         </h2>
       </div>
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-8 mt-10'>
+      <div className='grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-8 px-8 mt-10'>
         {cars.map((car, index) => (
           <div key={index} className='flex flex-col items-center'>
             <div className='bg-[#F0F4EF] w-full rounded-lg flex items-center justify-center p-4 sm:min-h-0 lg:min-h-[600px] sm:grid-rows-1'>
@@ -44,15 +44,15 @@ const CarGallery = () => {
           height={700}
           className='w-full rounded-lg'
         />
-        <div className='absolute bottom-10 left-1/2 transform -translate-x-1/2 text-center w-full'>
-          <h2 className='text-white text-3xl mb-4'>Explore Our Latest Arrivals</h2>
-          <button className='bg-[#F0F4EF] text-black px-6 py-2 rounded-lg hover:bg-[#747c7e] transition-colors duration-300'>
+        <div className='absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 text-center w-full'>
+          <h2 className='text-white text-lg sm:text-5xl md:text-3xl lg:text-3xl mb-4'>Explore Our Latest Arrivals</h2>
+          <button className='bg-[#F0F4EF] text-black px-6 py-2 rounded-lg  hover:bg-[#747c7e] transition-colors duration-300'>
             Order Now
           </button>
         </div>
       </div>
       <div className='mt-16 px-8'>
-        <h2 className='text-center text-4xl text-black mb-8'>More Models</h2>
+        <h2 className='text-center text-2xl sm:text-4xl lg:text-4xl text-black mb-8'>More Models</h2>
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-8'>
           <div className='flex flex-col items-center'>
             <div className='bg-[#F0F4EF] w-full rounded-lg flex items-center justify-center p-4'>
