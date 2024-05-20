@@ -2,50 +2,50 @@ import React from 'react'
 
 const FooterMenu = () => {
   return (
-    <footer className='bg-black max-w-full min-h-[20vh] text-white px-16 flex flex-col sm:flex-row justify-between'>
+    <footer className='bg-black max-w-full min-h-[20vh]  text-white px-8 flex flex-col sm:flex-row justify-between'>
         <div>
-        <ul>
-                <li>
-                    SHOP ALL
+        <ul className='space-y-2 text-[12px] mt-[5rem] mb-[-2rem] sm:mb-0'>
+                <li className='hover:text-[#f4f4f973] hover:cursor-pointer hover:text-[10px]'>
+                    ORDER NOW
                 </li>
-                <li>
+                <li className='hover:text-[#f4f4f973] hover:cursor-pointer hover:text-[10px]'>
                     ABOUT
                 </li>
-                <li>
+                <li className='hover:text-[#f4f4f973] hover:cursor-pointer hover:text-[10px]'>
                     CONTACT
                 </li>
             </ul>
             
           </div>
         <div>
-        <ul>
-                <li>
+        <ul className='space-y-2 text-[12px] mt-[5rem] mb-[-2rem] sm:mb-0'>
+                <li className='hover:text-[#f4f4f973] hover:cursor-pointer hover:text-[10px]'>
                     TERMS
                 </li>
-                <li>
+                <li className='hover:text-[#f4f4f973] hover:cursor-pointer hover:text-[10px]'>
                     SHIPPING POLICY
                 </li>
-                <li>
+                <li className='hover:text-[#f4f4f973] hover:cursor-pointer hover:text-[10px]'>
                     REFUND POLICY
                 </li>
             </ul>
         </div>
-        <div>
-        <ul>
-                <li>
+        <div className='mr-[70rem] mb-[-2rem] sm:mb-0'>
+        <ul className='space-y-2 text-[12px] mt-[5rem] '>
+                <li className='hover:text-[#f4f4f973] hover:cursor-pointer hover:text-[10px]'>
                     INSTAGRAM
                 </li>
-                <li>
+                <li className='hover:text-[#f4f4f973] hover:cursor-pointer hover:text-[10px]'>
                     FACEBOOK
                 </li>
-                <li>
+                <li className='hover:text-[#f4f4f973] hover:cursor-pointer hover:text-[10px]'>
                     TWITTER
                 </li>
             </ul>
         </div>
-        <div>
+        <div className='space-y-2 text-[12px] mt-[105px] text-[#f4f4f973]'>
             <h3>LICENSES</h3>
-            <p>&2024</p>
+            <p>&copy;2024</p>
         </div>
         
         
