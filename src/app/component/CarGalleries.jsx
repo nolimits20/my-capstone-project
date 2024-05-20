@@ -44,7 +44,7 @@ const CarGalleries = () => {
                 <h2>Best Choice</h2>
                 <p>The new Electric Vehicle and Fuel Electric Vehicle</p>
             </div>
-      <div className='relative h-[250px] sm:h-[400px] lg:h-[400px] overflow-hidden flex items-center flex-col sm:flex-row sm:mb-0'>
+      <div className='relative h-[250px] sm:h-[400px] lg:h-[400px] overflow-hidden mt-24 sm:mt-0 flex items-center flex-col sm:flex-row sm:mb-0'>
         <div className='bg-[#F0F4EF] max-w-[300px] min-h-[150px] sm:max-w-[400px] sm:min-h-[300px]  rounded-lg flex items-center justify-center p-4'>
           <Image
             src='/new-model-car.png'
