@@ -10,16 +10,16 @@ const CarGallery = () => {
 
   return (
     <div className=''>
-      <div className=''>
-        <h1 className='text-center text-5xl mt-10 text-black'>New Innovations</h1>
-        <h2 className='text-center text-black uppercase text-sm mt-2'>
+      <div className='text-center mt-10'>
+        <h1 className='text-5xl text-black'>New Innovations</h1>
+        <h2 className='text-black uppercase text-sm mt-2'>
           Car is not just Machines, They are an extension of ourselves
         </h2>
       </div>
-      <div className='flex flex-col px-8 space-y-8 mt-10 sm:flex-row sm:space-x-8 sm:space-y-0'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-8 mt-10'>
         {cars.map((car, index) => (
           <div key={index} className='flex flex-col items-center'>
-            <div className='bg-[#F0F4EF] max-w-[800px] min-h-[600px] rounded-lg flex items-center justify-center p-4'>
+            <div className='bg-[#F0F4EF] w-full rounded-lg flex items-center justify-center p-4 sm:min-h-0 lg:min-h-[600px] sm:grid-rows-1'>
               <Image 
                 src={car.src} 
                 alt={car.alt} 
@@ -28,7 +28,7 @@ const CarGallery = () => {
                 className='transition-transform duration-300 ease-in-out transform hover:scale-105'
               />
             </div>
-            <div className='text-left text-black mt-4 mr-[28rem]'>
+            <div className='text-center text-black mt-4'>
               <p className='mt-1'>{car.name}</p>
               <p className='mt-1'>{car.price}</p>
             </div>
@@ -53,9 +53,9 @@ const CarGallery = () => {
       </div>
       <div className='mt-16 px-8'>
         <h2 className='text-center text-4xl text-black mb-8'>More Models</h2>
-        <div className='flex flex-col sm:flex-row sm:flex-wrap justify-center gap-8'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 gap-8'>
           <div className='flex flex-col items-center'>
-            <div className='bg-[#F0F4EF] max-w-[900px] min-h-[600px] rounded-lg flex items-center justify-center p-4'>
+            <div className='bg-[#F0F4EF] w-full rounded-lg flex items-center justify-center p-4'>
               <Image
                 src='/new-model-bmw.png'
                 alt='New Model Bmw'
@@ -64,13 +64,13 @@ const CarGallery = () => {
                 className='transition-transform duration-300 ease-in-out transform hover:scale-105'
               />
             </div>
-            <div className='text-left text-black mt-4 mr-[42rem]'>
+            <div className='text-center text-black mt-4'>
               <p>BMW 7 Series</p>
               <p className='text-red-600'>&#8358; 40,000.00 <span><s className='text-black'>&#8358; 75,000.00</s></span></p>
             </div>
           </div>
           <div className='flex flex-col items-center'>
-            <div className='bg-[#F0F4EF] max-w-[900px] min-h-[600px] rounded-lg flex items-center justify-center p-4'>
+            <div className='bg-[#F0F4EF] w-full rounded-lg flex items-center justify-center p-4'>
               <Image
                 src='/new-model-car.png'
                 alt='New Model Car'
@@ -79,7 +79,7 @@ const CarGallery = () => {
                 className='transition-transform duration-300 ease-in-out transform hover:scale-105'
               />
             </div>
-            <div className='text-left text-black mt-4 mr-[42rem]'>
+            <div className='text-center text-black mt-4'>
               <p>Acura Electric Vehicle 2024</p>
               <p className='text-red-600'>&#8358; 40,000.00 <span><s className='text-black'>&#8358; 70,000.00</s></span></p>
             </div>
