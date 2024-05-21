@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const FooterMenu = () => {
@@ -12,7 +13,7 @@ const FooterMenu = () => {
                     ABOUT
                 </li>
                 <li className='hover:text-[#f4f4f973] hover:cursor-pointer hover:text-[10px]'>
-                    CONTACT
+                    <Link href={'/contact'}>CONTACT</Link>
                 </li>
             </ul>
             

@@ -1,8 +1,16 @@
-import React from 'react'
+import Background from './component/Background'
+import Carmain from './component/Carmain'
+import CarTypes from './component/CarTypes'
+import CarGalleries from './component/CarGalleries'
 
 const HomePage = () => {
   return (
-    <h1 ></h1>
+    <main className='min-h-screen'>
+      <Background/>
+          <Carmain/>
+          <CarTypes/>
+          <CarGalleries/>
+    </main>
   )
 }
 
