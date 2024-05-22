@@ -9,6 +9,7 @@ const Background = () => {
         autoPlay 
         muted 
         loop 
+        playsInline
       ></video>
       <div className='absolute bottom-0 left-0 p-4 sm:p-8 pb-16 text-white font-extrabold'>
         <h2 className='text-[24px] sm:text-[40px] lg:text-[50px] tracking-[-1px] sm:tracking-[-3px] shadow-[2px 2px 4px rgba(0, 0, 0, 0.6)]' style={{ lineHeight: '1.4' }}>
