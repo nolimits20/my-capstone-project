@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link'
 
 const Background = () => {
   return (
@@ -11,7 +12,7 @@ const Background = () => {
         loop 
         playsInline
       ></video>
-      <div className='absolute bottom-0 left-0 p-4 sm:p-8 pb-16 text-white font-extrabold'>
+      <div className='absolute bottom-0 left-0 p-4 sm:p-8 pb-16 text-white font-extrabold ml-14 sm:ml-0'>
         <h2 className='text-[24px] sm:text-[40px] lg:text-[50px] tracking-[-1px] sm:tracking-[-3px] shadow-[2px 2px 4px rgba(0, 0, 0, 0.6)]' style={{ lineHeight: '1.4' }}>
           Driving is a way of life <br />
           And a car is a tool to <br />
@@ -22,7 +23,7 @@ const Background = () => {
             BUY NOW
           </button>
           <button className='bg-transparent w-full sm:w-auto sm:px-8 h-[50px] text-black border-[#F4F4F9] border-2 hover:bg-[#F4F4F9]'>
-            ABOUT HI-TECH
+            <Link href={'/about'}>ABOUT HI-TECH</Link>
           </button>
         </div>
       </div>

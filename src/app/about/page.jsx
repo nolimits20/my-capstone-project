@@ -55,7 +55,7 @@ With a diverse range of services and products, <br /> we cater to individual car
                 alt='black-luxury'
                 layout='fill'
                 objectFit='cover'
-                className=''
+                
               />
             </div>
             <div>
@@ -63,12 +63,14 @@ With a diverse range of services and products, <br /> we cater to individual car
         <div className='sm:hidden'>
           <h2 className='text-black'>A leading player in the auto-mobile sector</h2>
           <p className='text-black mt-9'>We pride ourselves on our expertise, reliability, and customer-centric approach. <br /> Our mission is to harness the power of technology to enhance the performance, safety</p>
-          <div className='block'>
-            <h2 className=''>
+          
+        </div>
+        <div className='block sm:block'>
+            <h2 className='text-black mt-9 sm:mt-5'>
             With a diverse range of services and products</h2>
+            <p className='text-black mt-9 sm:mt-6'>We cater to individual car owners, dealerships, and manufacturers alike. <br /> From advanced diagnostics and repairs to customization and maintenance, <br /> our state-of-the-art facilities and skilled technicians ensure top-notch quality and efficiency.</p>
             <hr className='mt-8'/>
           </div>
-        </div>
 
         <div>
           
@@ -84,6 +86,15 @@ With a diverse range of services and products, <br /> we cater to individual car
          <h4 className='text-[12px] text-slate-600 '>HI-TECH MULTIPURPOSE LTD</h4>
          <p className='text-lg sm:text-6xl font-bold'>Your Trust, <span className='text-slate-600'>Our Commitment</span></p>
        </div>
+ </div>
+ <div className='relative mt-4 sm:h-[1800px] sm:mt-0 h-[600px] overflow-hidden'>
+      <Image
+        src='/woman-talking.jpg'
+        alt='woman-talking'
+        layout='fill'
+        objectFit='cover'
+                
+        />
  </div>
  </main>
   )

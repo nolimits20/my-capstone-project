@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const CarGalleries = () => {
   return (
@@ -116,7 +117,7 @@ const CarGalleries = () => {
             </p>
           </div>
           <div className='absolute bottom-20 text-white bg-black w-[170px] h-[60px] text-center pt-4 hover:bg-slate-700'>
-        <button>About Us</button>
+        <button><Link href={'/about'}>About Us</Link></button>
       </div>
           
           

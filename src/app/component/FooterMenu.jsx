@@ -10,7 +10,7 @@ const FooterMenu = () => {
                     ORDER NOW
                 </li>
                 <li className='hover:text-[#f4f4f973] hover:cursor-pointer hover:text-[10px]'>
-                    ABOUT
+                    <Link href={'/about'}>ABOUT</Link>
                 </li>
                 <li className='hover:text-[#f4f4f973] hover:cursor-pointer hover:text-[10px]'>
                     <Link href={'/contact'}>CONTACT</Link>
