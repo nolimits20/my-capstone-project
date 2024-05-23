@@ -27,7 +27,7 @@ const FooterMenu = () => {
                     <Link href={'/shipping-policy'}>SHIPPING POLICY</Link>
                 </li>
                 <li className='hover:text-[#f4f4f973] hover:cursor-pointer '>
-                    REFUND POLICY
+                    <Link href={'/refund-policy'}>REFUND POLICY</Link>
                 </li>
             </ul>
         </div>

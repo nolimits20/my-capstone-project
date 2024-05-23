@@ -7,7 +7,7 @@ const page = () => {
     <main>
     <div className=" relative px-8 min-h-screen pb-48 ">
    <div className="pt-20">
-     <h1 className="text-2xl text-left sm:text-6xl md:text-3xl text-black font-bold">About Us</h1>
+     <h1 className="text-2xl sm:text-left sm:text-6xl md:text-3xl text-center text-black font-bold">About Us</h1>
      <p className="text-black text-sm pt-4 text-center sm:text-left">
      Welcome to HI-Tech Multipurpose Ltd, your trusted partner in the automotive industry. <br /> With a passion for innovation and a commitment to excellence, <br /> our team is dedicated to providing cutting-edge solutions for all your automotive needs. <br />
 
