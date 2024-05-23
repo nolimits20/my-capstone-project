@@ -21,7 +21,7 @@ const FooterMenu = () => {
         <div>
         <ul className='space-y-2 text-[12px] mt-[5rem] mb-[-2rem] sm:mb-0'>
                 <li className='hover:text-[#f4f4f973] hover:cursor-pointer hover:text-[10px]'>
-                    TERMS
+                    <Link href={'/terms'}>TERMS</Link>
                 </li>
                 <li className='hover:text-[#f4f4f973] hover:cursor-pointer hover:text-[10px]'>
                     SHIPPING POLICY
