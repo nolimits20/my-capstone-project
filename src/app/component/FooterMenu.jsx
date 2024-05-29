@@ -7,7 +7,7 @@ const FooterMenu = () => {
         <div>
         <ul className='space-y-2 text-[12px] mt-[5rem] mb-[-2rem] sm:mb-0'>
                 <li className='hover:text-[#f4f4f973] hover:cursor-pointer '>
-                    <Link href='/orderall'>ORDER NOW</Link>
+                    <Link href='/ordernow'>ORDER NOW</Link>
                 </li>
                 <li className='hover:text-[#f4f4f973] hover:cursor-pointer '>
                     <Link href={'/about'}>ABOUT</Link>
