@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Carmain = () => {
   return (
-    <div className='flex flex-col px-8 gap-2 sm:flex sm:flex-row'>
+    <div className='flex flex-col px-8 gap-2 sm:flex sm:flex-row md:flex md:flex-col lg:flex lg:flex-row'>
     <div className='relative w-full text-center pt-8'>
       <Image 
         src='/sports-car.jpg' 

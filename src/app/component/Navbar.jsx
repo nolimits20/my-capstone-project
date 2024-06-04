@@ -47,7 +47,7 @@ const Navbar = () => {
                 </h1>
             </div>
             <div className='flex items-center'>
-                <ul className='text-black hidden sm:flex flex-row gap-2 relative'>
+                <ul className='text-black hidden sm:flex sm:text-sm flex-row gap-2 relative'>
                     {links.map(link => (
                         <li key={link.href} className='relative'>
                             {link.name === 'ORDER' ? (
