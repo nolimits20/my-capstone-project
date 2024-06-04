@@ -2,10 +2,10 @@ import React from 'react';
 import Image from 'next/image';
 import { carData } from '../component/data';
 import Link from 'next/link';
-import { GoArrowRight } from "react-icons/go";
+import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 
 const Page = () => {
-  const carInfo = carData.slice(0, 12); // Filtered data to be displayed, you may adjust this as needed
+  const carInfo = carData.slice(12, 24); // Filtered data to be displayed, you may adjust this as needed
 
   return (
     <main className='min-h-[70vh]'>
@@ -46,14 +46,15 @@ const Page = () => {
             </div>
           ))}
         </div>
-        <Link href='/ordernow2'>
-          <div className='text-black flex items-center justify-center mt-10 gap-4'>
-            <button>1/2 Next</button>
-            <GoArrowRight />
-          </div>
+        <Link href='/ordernow'>
+            <div className='text-black flex items-center justify-center mt-10 gap-4'>
+              <button>Prev 2/2</button>
+              <GoArrowLeft />
+            </div>
         </Link>
       </div>
     </main>
+    
   );
 };
 
