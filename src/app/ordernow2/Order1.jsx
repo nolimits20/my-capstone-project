@@ -13,7 +13,7 @@ function Order1() {
           objectFit='cover'
         />
         <div className='absolute inset-0 flex flex-col items-center justify-center text-white'>
-          <h2 className='text-3xl sm:text-5xl text-center text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) font-bold text-[#f8f9face] '>Your Trust <br /> Our Commitment</h2>
+          <h2 className='text-3xl sm:text-5xl text-center text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) font-bold text-[#f8f9face]'>Your Trust <br /> Our Commitment</h2>
           <Link href='/about'><button className='mt-4 px-4 py-2 bg-[#F0F4EF] hover:bg-slate-400 h-[60px] w-[150px] text-black'>About Us</button></Link>
         </div>
       </div>

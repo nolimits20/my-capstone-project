@@ -47,7 +47,7 @@ const Page = () => {
           ))}
         </div>
         <Link href='/ordernow2'>
-          <div className='text-black flex items-center justify-center mt-10 gap-4'>
+          <div className='text-black flex items-center justify-center my-20 gap-4'>
             <button>1/2 Next</button>
             <GoArrowRight />
           </div>
