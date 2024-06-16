@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const CarGallery = () => {
   const cars = [
@@ -46,9 +47,11 @@ const CarGallery = () => {
         />
         <div className='absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 text-center w-full'>
           <h2 className='text-white text-lg sm:text-5xl md:text-3xl lg:text-3xl mb-4'>Explore Our Latest Arrivals</h2>
-          <button className='bg-[#F0F4EF] text-black px-6 py-2 rounded-lg  hover:bg-[#747c7e] transition-colors duration-300'>
-            Order Now
-          </button>
+          <Link href='/ordernow' >
+            <button className='bg-[#F0F4EF] text-black px-6 py-2 rounded-lg  hover:bg-[#747c7e] transition-colors duration-300'>
+              Order Now
+            </button>
+          </Link>
         </div>
       </div>
       <div className='mt-16 px-8'>
