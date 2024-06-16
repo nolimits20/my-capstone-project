@@ -2,11 +2,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import React, { useState } from 'react';
-import { RiShoppingBagLine, RiSearchLine } from "react-icons/ri";
+import { RiShoppingBagLine } from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 import SearchBar from './SearchBar';
-
+import Cart from './Cart';
 
 const links = [
     { name: 'ORDER', href: '#' },
@@ -17,8 +17,7 @@ const links = [
 const Navbar = () => {
     const [isNavOpen, setIsNavOpen] = useState(false);
     const [isOrderDropdownOpen, setIsOrderDropdownOpen] = useState(false);
-    // const [isSearchVisible, setIsSearchVisible] = useState(false);
-    // const [searchQuery, setSearchQuery] = useState('');
+    const [isShoppingDropdownOpen, setIsShoppingDropdownOpen] = useState(false);
 
     const toggleNav = () => {
         setIsNavOpen(!isNavOpen);
@@ -28,6 +27,9 @@ const Navbar = () => {
         setIsOrderDropdownOpen(!isOrderDropdownOpen);
     };
 
+    const toggleShoppingDropdown = () => {
+        setIsShoppingDropdownOpen(!isShoppingDropdownOpen);
+    };
 
     const closeNav = () => {
         setIsNavOpen(false);
@@ -37,7 +39,9 @@ const Navbar = () => {
         setIsOrderDropdownOpen(false);
     };
 
-    
+    const closeShoppingDropdown = () => {
+        setIsShoppingDropdownOpen(false);
+    };
 
     const val = 0;
 
@@ -48,10 +52,10 @@ const Navbar = () => {
                     <Link href='/'>Hi-Tech <span className='hidden sm:inline'>Multipurpose Ltd</span></Link>
                 </h1>
             </div>
-            
+
             <div className='flex items-center'>
-                <SearchBar className='bg-blue-400' />
-                
+                <SearchBar />
+
                 <ul className='text-black hidden sm:flex sm:text-sm flex-row gap-2 relative ml-4'>
                     {links.map(link => (
                         <li key={link.href} className='relative'>
@@ -76,9 +80,11 @@ const Navbar = () => {
                                                 </div>
                                                 <div className='w-1/2 p-4 flex justify-center items-center relative'>
                                                     <Image alt='car dealership' width={900} height={350} src='/car-dealership.jpeg' />
-                                                    <button className='absolute bg-blue-500 text-white py-2 px-4 rounded' style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-                                                        Learn More
-                                                    </button>
+                                                    <Link href='/about'>
+                                                        <button className='absolute bg-[#F4F4F9] text-black py-2 px-4 rounded' onClick={closeOrderDropdown} style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+                                                            About Us
+                                                        </button>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -90,10 +96,19 @@ const Navbar = () => {
                         </li>
                     ))}
                 </ul>
-                <div className='flex items-center ml-4'>
-                    <RiShoppingBagLine className='font-semibold text-black' />
-                    <span className='font-semibold ml-2 text-black'>({val})</span>
+
+                <div className='flex items-center ml-4 relative'>
+                    <button onClick={toggleShoppingDropdown} className='flex items-center'>
+                        <RiShoppingBagLine className='font-semibold text-black' />
+                        <span className='font-semibold ml-2 text-black'>({val})</span>
+                    </button>
+                    {isShoppingDropdownOpen && (
+                        <div className='absolute right-0 top-[5vh] shadow-lg overflow-hidden' style={{zIndex: 1 }}>
+                            <Cart/>
+                        </div>
+                    )}
                 </div>
+
                 <div className='ml-4 relative sm:hidden'>
                     <div className='text-2xl cursor-pointer text-black' onClick={toggleNav}>
                         {isNavOpen ? <IoMdClose /> : <RxHamburgerMenu />}
