@@ -1,27 +1,66 @@
-import React from 'react';
+'use client'
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { carData } from '@/app/component/data';
 import Image from 'next/image';
 import { TbArrowBackUp } from 'react-icons/tb';
 import Link from 'next/link';
+import { SideBarContext } from '@/app/providers';
 
 export default function ProductPage({ params }) {
-    const carInfo = carData.find((car) => car.image === params.slug);
+    const { val, setVal, cartItems, setCartItems } = useContext(SideBarContext);
 
-    if (!carInfo) {
+    const carInfo = useRef(carData.find((car) => car.image === params.slug));
+    const [inputValue, setInputValue] = useState(1);
+
+    useEffect(() => {
+        if (carInfo.current) {
+            // Do nothing with state here to avoid re-renders
+        }
+    }, []);
+
+    function handleValType(e) {
+        setInputValue(Number(e.target.value));
+    }
+
+    function handleButtonIncrease() {
+        setVal(prev => prev + inputValue);
+        if (!carInfo.current) return;
+
+        const itemIndex = cartItems.findIndex(item => item.title === carInfo.current.make);
+        let newCartItems;
+
+        if (itemIndex !== -1) {
+            newCartItems = cartItems.map((item, index) => index === itemIndex ? {
+                ...item,
+                value: item.value + inputValue,
+                amount: item.amount + (carInfo.current.price * inputValue)
+            } : item);
+        } else {
+            newCartItems = [...cartItems, {
+                id: carInfo.current.id,
+                title: carInfo.current.make,
+                image: carInfo.current.image,
+                value: inputValue,
+                amount: carInfo.current.price * inputValue
+            }];
+        }
+
+        setCartItems(newCartItems);
+    }
+
+    if (!carInfo.current) {
         return <div>Car not found</div>;
     }
 
-    // Dummy related products (you may fetch these dynamically)
-    const relatedProducts = carData.filter((car) => car.image !== params.slug).slice(0, 4);
+    const relatedProducts = carData.filter((car) => car.image !== params.slug).slice(0, 8);
 
     return (
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="flex flex-col lg:flex-row gap-6">
-                {/* Main Product Section */}
-                <div className="lg:w-1/2 min-h-[700px]  flex items-center justify-center bg-gray-100">
+                <div className="lg:w-1/2 min-h-[700px] flex items-center justify-center bg-gray-100">
                     <Image
-                        src={`/${carInfo.image}.png`}
-                        alt={`${carInfo.make.split(' ').join('-')}-${carInfo.model.split(' ').join('-')}-${carInfo.year}`}
+                        src={`/${carInfo.current.image}.png`}
+                        alt={`${carInfo.current.make.split(' ').join('-')}-${carInfo.current.model.split(' ').join('-')}-${carInfo.current.year}`}
                         width={800}
                         height={600}
                         className="transition-transform duration-300 ease-in-out transform hover:scale-105"
@@ -29,7 +68,6 @@ export default function ProductPage({ params }) {
                 </div>
 
                 <div className="lg:w-1/2 flex flex-col gap-6 pt-28 px-6">
-                    {/* Order Now Link */}
                     <Link href="/ordernow">
                         <div className="flex items-center gap-2">
                             <TbArrowBackUp className="text-black" />
@@ -37,52 +75,66 @@ export default function ProductPage({ params }) {
                         </div>
                     </Link>
 
-                    {/* Car Information Section */}
-                    <div className="lg:grid lg:grid-cols-2 gap-4 text-slate-">
+                    <div className="lg:grid lg:grid-cols-2 gap-4">
                         <div>
                             <h2 className="font-semibold">Make</h2>
-                            <p className='text-black'>{carInfo.make}</p>
+                            <p className='text-black'>{carInfo.current.make}</p>
                         </div>
                         <div>
                             <h2 className="font-semibold">Model</h2>
-                            <p className='text-black'>{carInfo.model}</p>
+                            <p className='text-black'>{carInfo.current.model}</p>
                         </div>
                         <div>
                             <h2 className="font-semibold">Year</h2>
-                            <p className='text-black'>{carInfo.year}</p>
+                            <p className='text-black'>{carInfo.current.year}</p>
                         </div>
                         <div>
                             <h2 className="font-semibold">Price</h2>
-                            <p className='text-black'>{carInfo.price}</p>
+                            <p className='text-black'>${carInfo.current.price}</p>
                         </div>
                         <div>
                             <h2 className="font-semibold">Weight</h2>
-                            <p className='text-black'>{carInfo.weight}</p>
+                            <p className='text-black'>{carInfo.current.weight}</p>
                         </div>
                         <div>
                             <h2 className="font-semibold">Engine</h2>
-                            <p className='text-black'>{carInfo.engine}</p>
+                            <p className='text-black'>{carInfo.current.engine}</p>
                         </div>
                         <div>
                             <h2 className="font-semibold">Transmission</h2>
-                            <p className='text-black'>{carInfo.transmission}</p>
+                            <p className='text-black'>{carInfo.current.transmission}</p>
                         </div>
                         <div>
                             <h2 className="font-semibold">Drivetrain</h2>
-                            <p className='text-black'>{carInfo.drivetrain}</p>
+                            <p className='text-black'>{carInfo.current.drivetrain}</p>
                         </div>
                         <div>
                             <h2 className="font-semibold">Fuel Efficiency</h2>
-                            <p className='text-black'>{carInfo.fuelEfficiency}</p>
+                            <p className='text-black'>{carInfo.current.fuelEfficiency}</p>
                         </div>
                         <div>
                             <h2 className="font-semibold">Horsepower</h2>
-                            <p className='text-black'>{carInfo.horsepower}</p>
+                            <p className='text-black'>{carInfo.current.horsepower}</p>
                         </div>
-                        
                     </div>
-                    <div><button className='bg-black text-white w-full h-[50px] mt-36 hover:bg-slate-500'>ADD TO BAG</button></div>
-                    <div className='flex justify-between text-[12px] text-black hover:text-slate-400 cursor-pointer'>
+                    
+                    <div className="flex items-center justify-center gap-2 mt-4">
+                        <input 
+                            type="number" 
+                            value={inputValue} 
+                            onChange={handleValType} 
+                            className="border border-gray-300 p-2 rounded w-20"
+                            min="1"
+                        />
+                        <button 
+                            onClick={handleButtonIncrease} 
+                            className="bg-black text-white w-full h-[50px] hover:bg-slate-500"
+                        >
+                            ADD TO BAG
+                        </button>
+                    </div>
+                    
+                    <div className='flex justify-between text-[12px] text-black hover:text-slate-400 cursor-pointer mt-4'>
                       <Link href='/shipping-policy'>
                         <p>SHIPPING POLICY</p>
                       </Link>
@@ -90,30 +142,27 @@ export default function ProductPage({ params }) {
                         <p>REFUND POLICY</p>
                       </Link>
                     </div>
-
                 </div>
             </div>
 
-            {/* Related Products Section */}
             <div className="mt-8">
                 <h2 className="text-3xl font-semibold mb-4 text-center text-black">You May Also Like</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-center">
                     {relatedProducts.map((product) => (
                         <div key={product.image} className="bg-white p-4 rounded-lg shadow-md h-[350px]">
                             <Link href={`/product/${product.image}`}>
-                             
-                                    <Image
-                                        src={`/${product.image}.png`}
-                                        alt={`${product.make}-${product.model}-${product.year}`}
-                                        width={400}
-                                        height={400}
-                                        className="rounded-lg"
-                                    />
-                                   { <div className='text-left text-black'>
-                              <h3 className="text-lg font-semibold">{product.model}</h3>
-                                    <p className="text-sm">{product.make} - {product.year}</p></div>   }
+                                <Image
+                                    src={`/${product.image}.png`}
+                                    alt={`${product.make}-${product.model}-${product.year}`}
+                                    width={400}
+                                    height={400}
+                                    className="rounded-lg"
+                                />
+                                <div className='text-left text-black'>
+                                    <h3 className="text-lg font-semibold">{product.make}</h3>
+                                    <p className="text-sm">{product.model} - {product.year}</p>
+                                </div>
                             </Link>
-                           
                         </div>
                     ))}
                 </div>

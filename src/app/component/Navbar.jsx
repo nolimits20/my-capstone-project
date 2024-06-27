@@ -7,12 +7,16 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 import SearchBar from './SearchBar';
 import Cart from './Cart';
+import { SideBarContext } from '../providers';
+import { useContext } from 'react';
+    // import { useContext } from 'react/cjs/react.development';
 
 const links = [
     { name: 'ORDER', href: '#' },
     { name: 'ABOUT', href: '/about' },
     { name: 'CONTACT', href: '/contact' }
 ];
+
 
 const Navbar = () => {
     const [isNavOpen, setIsNavOpen] = useState(false);
@@ -43,8 +47,12 @@ const Navbar = () => {
         setIsShoppingDropdownOpen(false);
     };
 
-    const val = 0;
+    const {val} = useContext(SideBarContext)
 
+
+    // const val = 0;
+
+    
     return (
         <nav className='bg-[#F4F4F9] max-w-full px-8 items-center min-h-[8vh] sm:min-h-[5vh] fixed inset-x-0 z-[2] flex justify-between'>
             <div>
@@ -100,7 +108,9 @@ const Navbar = () => {
                 <div className='flex items-center ml-4 relative'>
                     <button onClick={toggleShoppingDropdown} className='flex items-center'>
                         <RiShoppingBagLine className='font-semibold text-black' />
-                        <span className='font-semibold ml-2 text-black'>({val})</span>
+                        <span className='font-semibold ml-2 text-black'>(
+                            {val}
+                            )</span>
                     </button>
                     {isShoppingDropdownOpen && (
                         <div className='absolute right-0 top-[5vh] shadow-lg overflow-hidden' style={{zIndex: 1 }}>

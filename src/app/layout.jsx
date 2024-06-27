@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
 import FooterMenu from "./component/FooterMenu";
+import { SidebarProvider } from "./providers";
 
 
 const bai = Bai_Jamjuree({ 
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={bai.className}>
+        <SidebarProvider>
         <Navbar/>
         <main className="min-h-[65vh] bg-white">
           
@@ -26,6 +28,8 @@ export default function RootLayout({ children }) {
         </main>
         <Footer/>
         <FooterMenu/>
+        </SidebarProvider>
+        
        
         </body>
     </html>
