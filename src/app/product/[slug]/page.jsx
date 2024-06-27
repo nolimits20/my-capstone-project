@@ -123,7 +123,7 @@ export default function ProductPage({ params }) {
                             type="number" 
                             value={inputValue} 
                             onChange={handleValType} 
-                            className="border border-gray-300 p-2 rounded w-20"
+                            className="p-2 w-20 h-[50px] text-white"
                             min="1"
                         />
                         <button 
