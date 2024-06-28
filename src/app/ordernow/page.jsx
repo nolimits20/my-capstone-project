@@ -40,7 +40,7 @@ const Page = () => {
                 </div>
                 <div className='text-center text-slate-500 mt-4'>
                   <p>{car.make}</p>
-                  <p className='text-black'>&#8358; {car.price}</p>
+                  <p className='text-black'>&#8358; {car.price.toLocaleString()}</p>
                 </div>
               </Link>
             </div>

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import { carData } from '@/app/component/data';
 import Image from 'next/image';
@@ -52,7 +52,7 @@ export default function ProductPage({ params }) {
         return <div>Car not found</div>;
     }
 
-    const relatedProducts = carData.filter((car) => car.image !== params.slug).slice(0, 8);
+    const relatedProducts = carData.filter((car) => car.image !== params.slug).slice(0, 4);
 
     return (
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -90,7 +90,7 @@ export default function ProductPage({ params }) {
                         </div>
                         <div>
                             <h2 className="font-semibold">Price</h2>
-                            <p className='text-black'>&#8358;{carInfo.current.price}</p>
+                            <p className='text-black'>&#8358;{carInfo.current.price.toLocaleString()}</p>
                         </div>
                         <div>
                             <h2 className="font-semibold">Weight</h2>
@@ -149,7 +149,7 @@ export default function ProductPage({ params }) {
                 <h2 className="text-3xl font-semibold mb-4 text-center text-black">You May Also Like</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-center">
                     {relatedProducts.map((product) => (
-                        <div key={product.image} className="bg-white p-4 rounded-lg shadow-md h-[350px]">
+                        <div key={product.image} className="bg-white p-4 rounded-lg shadow-md h-[350px] flex flex-col items-center">
                             <Link href={`/product/${product.image}`}>
                                 <Image
                                     src={`/${product.image}.png`}
@@ -158,7 +158,7 @@ export default function ProductPage({ params }) {
                                     height={400}
                                     className="rounded-lg"
                                 />
-                                <div className='text-left text-black'>
+                                <div className='text-center text-black mt-2'>
                                     <h3 className="text-lg font-semibold">{product.make}</h3>
                                     <p className="text-sm">{product.model} - {product.year}</p>
                                 </div>
