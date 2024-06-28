@@ -90,7 +90,7 @@ export default function ProductPage({ params }) {
                         </div>
                         <div>
                             <h2 className="font-semibold">Price</h2>
-                            <p className='text-black'>${carInfo.current.price}</p>
+                            <p className='text-black'>&#8358;{carInfo.current.price}</p>
                         </div>
                         <div>
                             <h2 className="font-semibold">Weight</h2>

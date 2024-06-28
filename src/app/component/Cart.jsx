@@ -7,7 +7,7 @@ import { SideBarContext } from '../providers';
 import { MdDelete } from "react-icons/md";// Adjust the import path accordingly
 
 export default function Cart() {
-    const { cartItems, setCartItems } = useContext(SideBarContext);
+    const {setVal, cartItems, setCartItems } = useContext(SideBarContext);
     const [isCartOpen, setIsCartOpen] = useState(true);
 
     const handleClick = () => {
@@ -15,6 +15,7 @@ export default function Cart() {
     };
 
     const handleDelete = (id) => {
+        setVal(prevVal => prevVal - 1); // Decrement the counter in the parent component    
         setCartItems(prevItems => {
             return prevItems.map(item => {
                 if (item.id === id) {
@@ -39,19 +40,19 @@ export default function Cart() {
                 <div className='p-7 flex-1 flex flex-col overflow-hidden'>
                     <div className='flex justify-between items-center mb-5 mt-10'>
                         <h2 className='text-3xl font-bold text-black'>Cart</h2>
-                        <button onClick={handleClick} className='text-3xl'>
+                        <button onClick={handleClick} className='text-3xl text-black'>
                             <IoMdClose />
                         </button>
                     </div>
                     {cartItems.length === 0 ? (
                         <div className='flex-1 flex items-center justify-center'>
-                            <p className='text-xl font-semibold'>Your cart is empty</p>
+                            <p className='text-xl font-semibold text-black'>Your cart is empty</p>
                         </div>
                     ) : (
                         <div className='overflow-y-auto flex-1 mb-5'>
                             {cartItems.map(item => (
                                 <div key={item.id} className='mb-5 grid grid-cols-3 gap-x-10 items-center'>
-                                    <div className='bg-[#D9D9D9] rounded-lg w-[150px] h-[100px]'>
+                                    <div className='bg-[#F4F4F9] rounded-lg w-[150px] h-[100px]'>
                                         <Image
                                             src={`/${item.image}.png`}
                                             alt={`${item.title}`}
@@ -64,7 +65,7 @@ export default function Cart() {
                                         <p className='text-sm text-black py-3'>{item.title}</p>
                                         <div className='text-black py-3'>
                                             <p>Qty: {item.value}</p>
-                                            <p>Amount: ${item.amount.toFixed(2)}</p>
+                                            <p>Price: &#8358;{item.amount.toFixed(2)}</p>
                                         </div>
                                     </div>
                                     <div className='flex justify-end items-start text-black'>
@@ -81,7 +82,7 @@ export default function Cart() {
                         <div className='flex justify-between'>
                             <p className='text-xl font-bold text-black'>TOTAL</p>
                             <p className='text-xl font-semibold text-black'>
-                                ${totalAmount.toLocaleString()}
+                            &#8358;{totalAmount.toLocaleString()}
                             </p>
                         </div>
                     </div>
