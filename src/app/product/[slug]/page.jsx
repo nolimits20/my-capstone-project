@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { TbArrowBackUp } from 'react-icons/tb';
 import Link from 'next/link';
 import { SideBarContext } from '@/app/providers';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 export default function ProductPage({ params }) {
     const { val, setVal, cartItems, setCartItems } = useContext(SideBarContext);
@@ -53,6 +55,8 @@ export default function ProductPage({ params }) {
     }
 
     const relatedProducts = carData.filter((car) => car.image !== params.slug).slice(0, 4);
+
+    
 
     return (
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">

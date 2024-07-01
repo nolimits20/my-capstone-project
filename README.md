@@ -1,6 +1,6 @@
-# Next.js E-Commerce Web App
+# Hi-Tech Multipurpose Ltd
 
-A modern, responsive eCommerce web application built using Next.js, Tailwind CSS, and React. This project features a clean design, product browsing, and a fully functional shopping cart.
+Welcome to Hi-Tech Multipurpose Ltd, your premier destination for cutting-edge automotive solutions. Explore our range of innovative vehicles, from electric to self-driving cars, designed to enhance performance, safety, and sustainability.A modern, responsive eCommerce web application built using Next.js, Tailwind CSS, and React. This project features a clean design, product browsing, and a fully functional shopping cart.
 
 ## Table of Contents
 
@@ -11,20 +11,19 @@ A modern, responsive eCommerce web application built using Next.js, Tailwind CSS
 - [Technologies Used](#technologies-used)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [Licence](#license)
 
 
 ## Demo
 
-Check out the live demo of the application: [Live Demo]() (replace with your demo link)
+Check out the live demo of the application: [Live Demo](https://my-capstone-project-yub5.vercel.app/)
 
 ## Features
 
 <!-- - User Authentication (Sign up, Log in, Profile Management) -->
-- Product Listing
-- Product Categories
-- Product Search by Name and Category
-- Shopping Cart
-- Responsive Design
+- Wide Range of Vehicles: Sports Cars, SUVs, Electric Vehicles, Self-Driving Cars, Fuel Cell Vehicles.
+- Latest Innovations: Explore the newest arrivals and latest technologies in the automotive industry.
+- Customer-Centric Approach: Dedicated to providing top-notch solutions tailored to your needs.
 
 ## Getting Started
 
@@ -39,8 +38,8 @@ Make sure you have the following installed on your local development environment
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Uche-Chidi/Pulse-Ecommerce
-   cd Pulse-Ecommerce
+   git clone https://github.com/nolimits20/my-capstone-project
+   cd capstone-project
 
 2. Install dependencies:
     npm install
@@ -67,14 +66,15 @@ Make sure you have the following installed on your local development environment
 3. Tailwind CSS
 4. React Hook Form
 5. React Query
+6. Hosting - Vercel
 
 ## Usage
 
-1. Product Management
-2. Browse Products: View the list of available products.
+1. Homepage: Browse through our extensive range of vehicles.
+2. About Section: Learn more about our company, mission, and values.
 3. Search Products: Search for products by name or category.
-4. View Product Details: Click on a product to see detailed information.
-6. Add to Cart: Add products to your shopping cart.
+4. Vehicle Details: View detailed information about each vehicle, including specifications, features, and pricing.
+6. Contact Form: Get in touch with us for inquiries, test drive bookings, or support.
 
 ## Contributing
 
@@ -94,3 +94,7 @@ Contributions are welcome! Please fork the repository and create a pull request 
     git push origin feature/add-feature-name
 
 5. Open a pull request.
+
+### License
+
+- This project is licensed under the MIT License. See the LICENSE file for details
