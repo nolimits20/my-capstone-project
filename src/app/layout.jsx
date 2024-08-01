@@ -12,8 +12,8 @@ const bai = Bai_Jamjuree({
 
 
 export const metadata = {
-  title: "Home",
-  description: "Hi Tech Multipurpose Ltd",
+  title: "Hi-Tech Multipurpose Ltd",
+  description: "Welcome to your Number 1 auto dealer",
 };
 
 export default function RootLayout({ children }) {
