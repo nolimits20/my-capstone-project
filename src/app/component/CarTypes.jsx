@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const CarGallery = () => {
   const cars = [
-    { src: '/tesla-ev-car.png', alt: 'Tesla EV', name: 'Tesla (EV)', price: '₦ 30,000,000.00' },
+    { src: '/tesla-model3-2021.png', alt: 'Tesla EV', name: 'Tesla (EV)', price: '₦ 30,000,000.00' },
     { src: '/self-driving-car.png', alt: 'Self Driving Car', name: 'Self Driving Car', price: '₦ 70,000,000.00' },
     { src: '/fuel-cell-cars.png', alt: 'Fuel Cell Car', name: 'Fuel Cell Car (FCV)', price: '₦ 40,000,000.00' },
   ];
