@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { TbArrowBackUp } from 'react-icons/tb';
 import Link from 'next/link';
 import { SideBarContext } from '@/app/providers';
+import { motion } from 'framer-motion';
+import Swal from 'sweetalert2';
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 
@@ -48,6 +50,13 @@ export default function ProductPage({ params }) {
         }
 
         setCartItems(newCartItems);
+
+        Swal.fire({
+            title: 'Added to Bag!',
+            text: `${carInfo.current.make} has been added to your bag.`,
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
     }
 
     if (!carInfo.current) {
@@ -56,12 +65,15 @@ export default function ProductPage({ params }) {
 
     const relatedProducts = carData.filter((car) => car.image !== params.slug).slice(0, 4);
 
-    
-
     return (
         <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div className="flex flex-col lg:flex-row gap-6">
-                <div className="lg:w-1/2 min-h-[700px] flex items-center justify-center bg-gray-100">
+                <motion.div 
+                    className="lg:w-1/2 min-h-[700px] flex items-center justify-center bg-gray-100"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                >
                     <Image
                         src={`/${carInfo.current.image}.png`}
                         alt={`${carInfo.current.make.split(' ').join('-')}-${carInfo.current.model.split(' ').join('-')}-${carInfo.current.year}`}
@@ -69,9 +81,14 @@ export default function ProductPage({ params }) {
                         height={600}
                         className="transition-transform duration-300 ease-in-out transform hover:scale-105"
                     />
-                </div>
+                </motion.div>
 
-                <div className="lg:w-1/2 flex flex-col gap-6 pt-28 px-6">
+                <motion.div 
+                    className="lg:w-1/2 flex flex-col gap-6 pt-28 px-6"
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
                     <Link href="/ordernow">
                         <div className="flex items-center gap-2">
                             <TbArrowBackUp className="text-black" />
@@ -130,12 +147,14 @@ export default function ProductPage({ params }) {
                             className="p-2 w-20 h-[50px] text-white"
                             min="1"
                         />
-                        <button 
+                        <motion.button 
                             onClick={handleButtonIncrease} 
                             className="bg-black text-white w-full h-[50px] hover:bg-slate-500"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                         >
                             ADD TO BAG
-                        </button>
+                        </motion.button>
                     </div>
                     
                     <div className='flex justify-between text-[12px] text-black hover:text-slate-400 cursor-pointer mt-4'>
@@ -146,14 +165,25 @@ export default function ProductPage({ params }) {
                         <p>REFUND POLICY</p>
                       </Link>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
-            <div className="mt-8">
+            <motion.div 
+                className="mt-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+            >
                 <h2 className="text-3xl font-semibold mb-4 text-center text-black">You May Also Like</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-center">
                     {relatedProducts.map((product) => (
-                        <div key={product.image} className="bg-white p-4 rounded-lg shadow-md h-[350px] flex flex-col items-center">
+                        <motion.div 
+                            key={product.image} 
+                            className="bg-white p-4 rounded-lg shadow-md h-[350px] flex flex-col items-center"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.5 }}
+                        >
                             <Link href={`/product/${product.image}`}>
                                 <Image
                                     src={`/${product.image}.png`}
@@ -167,10 +197,10 @@ export default function ProductPage({ params }) {
                                     <p className="text-sm">{product.model} - {product.year}</p>
                                 </div>
                             </Link>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 }

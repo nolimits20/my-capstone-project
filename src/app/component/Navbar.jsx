@@ -5,18 +5,17 @@ import React, { useState } from 'react';
 import { RiShoppingBagLine } from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
+import { motion } from 'framer-motion';
 import SearchBar from './SearchBar';
 import Cart from './Cart';
 import { SideBarContext } from '../providers';
 import { useContext } from 'react';
-    // import { useContext } from 'react/cjs/react.development';
 
 const links = [
     { name: 'ORDER', href: '#' },
     { name: 'ABOUT', href: '/about' },
     { name: 'CONTACT', href: '/contact' }
 ];
-
 
 const Navbar = () => {
     const [isNavOpen, setIsNavOpen] = useState(false);
@@ -47,12 +46,8 @@ const Navbar = () => {
         setIsShoppingDropdownOpen(false);
     };
 
-    const {val} = useContext(SideBarContext)
+    const { val } = useContext(SideBarContext);
 
-
-    // const val = 0;
-
-    
     return (
         <nav className='bg-[#F4F4F9] max-w-full px-8 items-center min-h-[8vh] sm:min-h-[5vh] fixed inset-x-0 z-[2] flex justify-between'>
             <div>
@@ -73,7 +68,14 @@ const Navbar = () => {
                                         {link.name}
                                     </button>
                                     {isOrderDropdownOpen && (
-                                        <div className='fixed inset-x-0 top-[5vh] bg-white shadow-lg overflow-hidden' style={{ height: '50vh', zIndex: 1 }}>
+                                        <motion.div
+                                            className='fixed inset-x-0 top-[5vh] bg-white shadow-lg overflow-hidden'
+                                            style={{ height: '50vh', zIndex: 1 }}
+                                            initial={{ opacity: 0, y: -20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -20 }}
+                                            transition={{ duration: 0.3 }}
+                                        >
                                             <div className='flex h-full'>
                                                 <div className='w-1/2 p-4 flex flex-col'>
                                                     <p className='font-semibold'>Order</p>
@@ -95,7 +97,7 @@ const Navbar = () => {
                                                     </Link>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </motion.div>
                                     )}
                                 </>
                             ) : (
@@ -113,18 +115,38 @@ const Navbar = () => {
                             )</span>
                     </button>
                     {isShoppingDropdownOpen && (
-                        <div className='absolute right-0 top-[5vh] shadow-lg overflow-hidden' style={{zIndex: 1 }}>
-                            <Cart/>
-                        </div>
+                        <motion.div
+                            className='absolute right-0 top-[5vh] shadow-lg overflow-hidden'
+                            style={{ zIndex: 1 }}
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            <Cart />
+                        </motion.div>
                     )}
                 </div>
 
                 <div className='ml-4 relative sm:hidden'>
-                    <div className='text-2xl cursor-pointer text-black' onClick={toggleNav}>
+                    <motion.div
+                        className='text-2xl cursor-pointer text-black'
+                        onClick={toggleNav}
+                        initial={{ rotate: 0 }}
+                        animate={{ rotate: isNavOpen ? 90 : 0 }}
+                        transition={{ duration: 0.6 }}
+                    >
                         {isNavOpen ? <IoMdClose /> : <RxHamburgerMenu />}
-                    </div>
+                    </motion.div>
                     {isNavOpen && (
-                        <div className='fixed inset-x-0 top-[8vh] bg-white text-black flex flex-col items-center justify-start p-4' style={{ height: 'calc(100vh - 8vh)', zIndex: 2 }}>
+                        <motion.div
+                            className='fixed inset-x-0 top-[8vh] bg-white text-black flex flex-col items-center justify-start p-4'
+                            style={{ height: 'calc(100vh - 8vh)', zIndex: 2 }}
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.6 }}
+                        >
                             <div className='w-full bg-white shadow-lg overflow-auto' style={{ height: '100%', zIndex: 1 }}>
                                 <div className='flex flex-col'>
                                     <div className='p-4 flex flex-col'>
@@ -146,7 +168,7 @@ const Navbar = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     )}
                 </div>
             </div>

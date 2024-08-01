@@ -130,7 +130,7 @@ const CarGalleries = () => {
             </div>
           </motion.div>
           <div className='absolute bottom-0 sm:bottom-20 text-white bg-black w-[170px] h-[60px] text-center pt-4 hover:bg-slate-700'>
-            <button>Order Now</button>
+            <Link href='/ordernow'><button>Order Now</button></Link>
           </div>
         </motion.div>
 

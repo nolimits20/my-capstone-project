@@ -6,31 +6,52 @@ import Image from 'next/image';
 import { SideBarContext } from '../providers'; 
 import { MdDelete } from "react-icons/md";
 import { motion, AnimatePresence } from 'framer-motion';
+import Swal from 'sweetalert2';
 
 export default function Cart() {
-    const {setVal, cartItems, setCartItems } = useContext(SideBarContext);
+    const { setVal, cartItems, setCartItems } = useContext(SideBarContext);
     const [isCartOpen, setIsCartOpen] = useState(true);
 
     const handleClick = () => {
         setIsCartOpen(false);
     };
 
-    const handleDelete = (id) => {
-        setVal(prevVal => prevVal - 1);
-        setCartItems(prevItems => {
-            return prevItems.map(item => {
-                if (item.id === id) {
-                    if (item.value > 1) {
-                        const newValue = item.value - 1;
-                        const newAmount = (item.amount / item.value) * newValue;
-                        return { ...item, value: newValue, amount: newAmount };
-                    } else {
-                        return null;
-                    }
-                }
-                return item;
-            }).filter(item => item !== null);
+    const handleDelete = async (id) => {
+        // Show confirmation alert
+        const result = await Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
         });
+
+        if (result.isConfirmed) {
+            // Proceed with deletion
+            setVal(prevVal => prevVal - 1);
+            setCartItems(prevItems => {
+                return prevItems.map(item => {
+                    if (item.id === id) {
+                        if (item.value > 1) {
+                            const newValue = item.value - 1;
+                            const newAmount = (item.amount / item.value) * newValue;
+                            return { ...item, value: newValue, amount: newAmount };
+                        } else {
+                            return null;
+                        }
+                    }
+                    return item;
+                }).filter(item => item !== null);
+            });
+
+            Swal.fire(
+                'Deleted!',
+                'Your item has been deleted.',
+                'success'
+            );
+        }
     };
 
     const totalAmount = cartItems.reduce((acc, item) => acc + item.amount, 0);

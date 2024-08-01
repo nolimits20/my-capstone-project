@@ -49,14 +49,14 @@ const Background = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            BUY NOW
+            <Link href='/ordernow'>BUY NOW</Link>
           </motion.button>
           <motion.button 
             className='bg-transparent w-full sm:w-auto sm:px-8 h-[50px] text-black border-[#F4F4F9] border-2 hover:bg-[#F4F4F9]'
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link href={'/about'}>ABOUT HI-TECH</Link>
+            <Link href='/about'>ABOUT HI-TECH</Link>
           </motion.button>
         </motion.div>
       </motion.div>
